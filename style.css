@@ -47,19 +47,18 @@ header {
     margin-right: 3px;
 }
 
-/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
     background: #FDFBF5;
     border-radius: 22px;
     padding: 4px 18px;
-    min-width: 170px;
-    max-width: 270px;
-    flex: 1 1 250px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
     margin: 0 18px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Evita quebrar o input e o botão */
 }
 
 .search-bar input[type="search"] {
@@ -70,6 +69,7 @@ header {
     flex: 1;
     color: #6B4F40;
     padding: 7px 6px 7px 0;
+    min-width: 0; /* Impede que o input force o container a crescer */
 }
 
 .search-bar button {
@@ -80,11 +80,6 @@ header {
     font-size: 1.45rem;
     transition: color .16s;
     margin-left: 3px;
-}
-
-.search-bar button:active,
-.search-bar button:hover {
-    color: #c1992e;
 }
 
 /* Header Icons (cart, menu) */
@@ -213,6 +208,7 @@ header {
 .banner {
     width: 100%;
    aspect-ratio: 1600 / 533;
+     margin-top: 10px;
     position: relative;
     background: #f3e5c1;
     display: flex;
