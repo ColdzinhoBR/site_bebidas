@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho - Cachaçaria Ouro da Terra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "@phosphor-icons/web": "https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <a href="index.html" class="logo-link">
+                <img src="logo_resized_resized.jpeg" alt="Logo Ouro da Terra" id="logo">
+            </a>
+            <h1 style="flex:1;text-align:center;font-family:'Lora',serif; color:#E4C59E; font-size:1.4rem;">Seu Carrinho</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container" style="max-width:700px; margin-top:40px;">
+            <h2 style="margin-bottom:24px;">Itens no Carrinho</h2>
+            <table id="cart-table" style="width:100%; border-collapse:collapse; margin-bottom:22px;">
+                <thead>
+                    <tr style="background:#f8f0e3;">
+                        <th style="padding:8px;">Produto</th>
+                        <th style="padding:8px;">Qtd.</th>
+                        <th style="padding:8px;">Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS will fill -->
+                </tbody>
+            </table>
+            <div id="cart-empty" style="display:none; font-size:1.13rem; text-align:center; color:#B8860B; margin:20px 0;">
+                Seu carrinho está vazio.
+            </div>
+            <div style="text-align:center;">
+                <a href="index.html" class="cta-button" style="margin-right:18px;">Continuar Comprando</a>
+                <button id="finalizar-btn" class="buy-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cachaçaria Ouro da Terra. Todos os direitos reservados.</p>
+            <p>
+                <a href="#" class="footer-link">Política de Privacidade</a> | 
+                <a href="#" class="footer-link">Termos de Uso</a> | 
+                Contato: <a href="mailto:contato@ourodaterra.com.br" class="footer-link">contato@ourodaterra.com.br</a>
+            </p>
+        </div>
+    </footer>
+    <script type="module">
+    import "@phosphor-icons/web";
+    </script>
+    <script>
+    // --- Cart page logic ---
+    const cartKey = 'ourodaterra.cart';
+    function loadCart() {
+        const str = localStorage.getItem(cartKey);
+        return str ? JSON.parse(str) : [];
+    }
+    function saveCart(arr) {
+        localStorage.setItem(cartKey, JSON.stringify(arr));
+    }
+    function removeFromCart(id) {
+        let cart = loadCart().filter(item => item.id !== id);
+        saveCart(cart); renderCart();
+    }
+    function changeQty(id, delta) {
+        let cart = loadCart();
+        let idx = cart.findIndex(i=>i.id===id);
+        if(idx>-1){
+            cart[idx].qty = Math.max(1,(cart[idx].qty||1)+delta);
+            saveCart(cart); renderCart();
+        }
+    }
+
+    function renderCart() {
+        const tb = document.querySelector('#cart-table tbody');
+        const cart = loadCart();
+        tb.innerHTML = '';
+        if(cart.length === 0){
+            document.getElementById('cart-empty').style.display='block';
+            document.getElementById('cart-table').style.display='none';
+            return;
+        }
+        document.getElementById('cart-empty').style.display='none';
+        document.getElementById('cart-table').style.display='';
+        for(const item of cart){
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td style="padding:8px;">
+                <img src="${item.img}" alt="" style="width:30px;vertical-align:middle;margin-right:9px;">
+                ${item.name}
+            </td>
+            <td style="padding:8px; text-align:center;">
+                <button onclick="changeQty('${item.id}',-1)" style="font-size:1.1rem;padding:0 8px;">-</button>
+                <span style="margin:0 8px;">${item.qty||1}</span>
+                <button onclick="changeQty('${item.id}',1)" style="font-size:1.1rem;padding:0 8px;">+</button>
+            </td>
+            <td style="padding:8px; text-align:center;">
+                <button onclick="removeFromCart('${item.id}')" style="color:#B8860B; background:none; border:none; font-size:1.25rem;"><i class="ph ph-trash"></i></button>
+            </td>
+            `;
+            tb.appendChild(tr);
+        }
+    }
+    window.changeQty = changeQty;
+    window.removeFromCart = removeFromCart;
+
+    document.getElementById('finalizar-btn').addEventListener('click',function(){
+        alert('Compra finalizada! Pedido em processamento.');
+        saveCart([]);
+        renderCart();
+    });
+
+    renderCart();
+    </script>
+</body>
+</html>

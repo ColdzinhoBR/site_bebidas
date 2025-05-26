@@ -1,0 +1,186 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachaçaria Ouro da Terra</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@phosphor-icons/web": "https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js"
+        }
+      }
+      
+    </script>
+    <script>
+      
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-flex">
+            <a href="#" class="logo-link">
+              <img src="logo_resized_resized.jpeg" alt="Logo Ouro da Terra" id="logo">
+            </a>
+            <form class="search-bar" autocomplete="off">
+                <input type="search" placeholder="Buscar...">
+                <button type="submit" aria-label="Buscar">
+                    <i class="ph ph-magnifying-glass"></i>
+                </button>
+            </form>
+            <nav class="header-icons">
+                <button class="icon-btn" id="cart-btn" aria-label="Carrinho">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="icon-btn" id="menu-btn" aria-label="Catálogo">
+                    <i class="ph ph-list" id="menu-hamburguer"></i>
+                </button>
+            </nav>
+        </div>
+        <div class="category-bar" id="category-bar">
+            <ul>
+                <li><a href="#bebidas">Bebidas</a></li>
+                <li><a href="#personalizados">Personalizados</a></li>
+                <li><a href="#assinatura">Assinatura Premium</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="banner remaster.png" alt="Banner Ouro da Terra - Campo de Cana" class="banner-img">
+            <div class="banner-text">
+                 <!-- (colocar logi no banner) <img src="" alt="Logo Ouro da Terra" class="banner-logo">-->
+           
+            </div>
+        </section>
+
+        <nav class="category-menu-mobile" id="category-menu-mobile">
+            <ul>
+                <li><a href="#bebidas">Bebidas</a></li>
+                <li><a href="#personalizados">Personalizados</a></li>
+                <li><a href="#assinatura">Assinatura Premium</a></li>
+            </ul>
+        </nav>
+
+        <section id="bebidas" class="products">
+            <div class="container">
+                <h2>Bebidas Artesanais</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-id="1">
+                        <img src="cachaça acerola.jpeg" alt="Cachaça Prata Clássica Ouro da Terra">
+                        <h3>Cachaça de acerola</h3>
+                        <p>Encorpada, sabor suave para suas caipirinhas ou pura!</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="2">
+                        <img src="cachaça goiba.jpeg" alt="Cachaça goiba Envelhecida Ouro da Terra">
+                        <h3>Cachaça Ouro Envelhecida</h3>
+                        <p>Cachaça envelhecida por 6 meses no barril de carvalho com extrato natural de goiba.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="3">
+                        <img src="açai.jpeg" alt="Cachaça Reserva Especial Ouro da Terra">
+                        <h3>Reserva Especial</h3>
+                        <p>cachaça especial de açai.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="4">
+                        <img src="mate.jpeg" alt="Cachaça Prata Especiaria Ouro da Terra">
+                        <h3>cachaça de mate-leao com Especiarias</h3>
+                        <p>Levemente infusionada com especiarias. Sabor diferenciado para drinks criativos.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="5">
+                        <img src="baunilha.jpeg" alt="Ouro Safra Limitada de baunilha">
+                        <h3>Ouro Safra Limitada, de baunilha</h3>
+                        <p>Produção exclusiva, sabor marcante e coleção limitada de Minas Gerais.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="personalizados" class="products personalized">
+            <div class="container">
+                <h2>Personalizados Exclusivos</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-id="6">
+                        <img src="copos de time.jpeg" alt="Copo de Cachaça">
+                        <h3>Copo de Cachaça</h3>
+                        <p>Copo de vidro exclusivo personalizado Ouro da Terra, mande personalizar ou escolha um já definido.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="7">
+                        <img src="chaveiro.png" alt="Chaveiro Ouro da Terra">
+                        <h3>Chaveiro Ouro da Terra</h3>
+                        <p>Leve um pedacinho de Minas com você. Chaveiro exclusivo e resistente.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-card" data-id="8">
+                        <img src="camisa.jpeg" alt="Camiseta Ouro da Terra">
+                        <h3>Camiseta Temática</h3>
+                        <p>Malha de algodão, diversos tamanhos. Estampa Ouro da Terra.</p>
+                        <div class="card-actions">
+                            <button class="buy-btn">Comprar</button>
+                            <button class="add-cart-btn" title="Adicionar ao carrinho"><i class="ph ph-basket"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assinatura" class="premium">
+            <div class="container premium-area">
+                <img src="banana.jpeg" alt="Clube Premium" class="premium-img">
+                <div class="premium-text">
+                    <h2>Assinatura Premium</h2>
+                    <p>Receba mensalmente uma seleção de cachaças especiais, brindes exclusivos e descontos VIP.</p>
+                    <button id="subscribe-btn">Assinar agora</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cachaçaria Ouro da Terra. Todos os direitos reservados.</p>
+            <p>
+                <a href="#" class="footer-link">Política de Privacidade</a> | 
+                <a href="#" class="footer-link">Termos de Uso</a> | 
+                Contato: <a href="/cdn-cgi/l/email-protection#14777b7a6075607b547b61667b707560716666753a777b793a7666" class="footer-link"><span class="__cf_email__" data-cfemail="73101c1d0712071c331c06011c171207160101125d101c1e5d1101">[email&#160;protected]</span></a>
+            </p>
+        </div>
+    </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="module" src="script.js"></script>
+    <script type="module">
+        import "@phosphor-icons/web";
+    </script>
+</body>
+</html>
